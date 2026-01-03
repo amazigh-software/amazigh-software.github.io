@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasiw amazigh - isekkilen ilatiniyen</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/anasiw.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <img src="/images/logo.png" alt="logo" width="30" height="30">
+                    <span>Anasiw</span>
+                </a>
+                <a href="https://github.com/amazigh-software/anasiw"
+                    class="ms-auto me-3 d-flex align-items-center text-dark fs-4" target="_blank"
+                    aria-label="Source code on GitHub">
+                    <img src="images/github.svg" alt="GitHub" width="20" height="20">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+
+        <section class="row">
+            <!-- ZONE PRINCIPALE -->
+            <section class="col-md-8">
+
+                <!-- Zone de saisie -->
+                <section class="mb-4">
+                    <textarea id="tirra" class="form-control" rows="10" onkeyup="directMode()"
+                        placeholder="Uru ayenna trid da..."></textarea>
+                </section>
+
+                <!-- Clavier de caractères -->
+                <section class="mb-4">
+                    <div class="char-grid" id="charKeyboard">
+                        <!-- Ligne 1 : MAJUSCULES -->
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Č">Č</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Ḍ">Ḍ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Ǧ">Ǧ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Ḥ">Ḥ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Ṛ">Ṛ</button>
+
+                        <!-- Ligne 2 : minuscules -->
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="č">č</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ḍ">ḍ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ǧ">ǧ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ḥ">ḥ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ṛ">ṛ</button>
+                    </div>
+                </section>
+                <section class="mb-4">
+                    <div class="char-grid" id="charKeyboard1">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Ṣ">Ṣ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Ṭ">Ṭ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Ẓ">Ẓ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Γ">Γ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Σ">Σ</button>
+
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ṣ">ṣ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ṭ">ṭ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ẓ">ẓ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ɣ">ɣ</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-char="ɛ">ɛ</button>
+                    </div>
+                </section>
+                <h1 class="h4">Tiwtilin n useqdec</h1>
+
+                <!-- ROW REQUIRED HERE -->
+                <section class="row">
+                    <section class="col-md-6">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Asekkil</th>
+                                    <th scope="col">Asenfar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>č</td>
+                                    <td>c=</td>
+                                </tr>
+                                <tr>
+                                    <td>ḍ</td>
+                                    <td>d=</td>
+                                </tr>
+                                <tr>
+                                    <td>ǧ</td>
+                                    <td>g=</td>
+                                </tr>
+                                <tr>
+                                    <td>ḥ</td>
+                                    <td>h=</td>
+                                </tr>
+                                <tr>
+                                    <td>ṛ</td>
+                                    <td>r=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section class="col-md-6">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Asekkil</th>
+                                    <th scope="col">Asenfar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ṣ</td>
+                                    <td>s=</td>
+                                </tr>
+                                <tr>
+                                    <td>ṭ</td>
+                                    <td>t=</td>
+                                </tr>
+                                <tr>
+                                    <td>ẓ</td>
+                                    <td>z=</td>
+                                </tr>
+                                <tr>
+                                    <td>ɣ</td>
+                                    <td>y=</td>
+                                </tr>
+                                <tr>
+                                    <td>ɛ</td>
+                                    <td>e=</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+            <!-- ASIDE -->
+            <aside class="col-md-4">
+                <div class="bg-light p-3 rounded">
+                    <h3 class="h5">Azal</h3>
+                    <p>Allal-a yettɛawan-ik deg tira n yisekkilen n tmaziɣt s useqdec n ugemmay alatini s yisekkilen
+                        uzzigen. Tzemreḍ ad taruḍ iɣewwaɣen akken ad tessekcemḍ isekkilen.</p>
+                </div>
+                </br>
+                <h3 class="h5">Agemmay</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Asekkil</th>
+                            <th scope="col">Amedya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>č / Č</td>
+                            <td>Ičča (Il a mangé)</td>
+                        </tr>
+                        <tr>
+                            <td>ḍ / Ḍ</td>
+                            <td>Iḍan (Nuits)</td>
+                        </tr>
+                        <tr>
+                            <td>ḥ / Ḥ</td>
+                            <td>Ḥewwa (Eve)</td>
+                        </tr>
+                        <tr>
+                            <td>ğ / Ğ</td>
+                            <td>Ur ğğin (Ne jamais)</td>
+                        </tr>
+                        <tr>
+                            <td>ɣ / Γ</td>
+                            <td>Γef (Sur)</td>
+                        </tr>
+                        <tr>
+                            <td>ṛ / Ṛ</td>
+                            <td>Beṛṛa (Dehors)</td>
+                        </tr>
+                        <tr>
+                            <td>ṣ / Ṣ</td>
+                            <td>Ṣinṣeg (Siffler)</td>
+                        </tr>
+                        <tr>
+                            <td>ṭ / Ṭ</td>
+                            <td>Tiṭ (Oeil)</td>
+                        </tr>
+                        <tr>
+                            <td>ẓ / Ẓ</td>
+                            <td>Aẓawan (Musique)</td>
+                        </tr>
+                        <tr>
+                            <td>ε / Σ</td>
+                            <td>Σli (Ali)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="h5">Imttekkiyen</h3>
+                <a href="https://github.com/zouftou">zouftou</a>
+            </aside>
+        </section>
+
+
+    </main>
+
+
+    <footer class="bg-light py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 Amazigh Software</p>
+        </div>
+    </footer>
+
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+    <script src="scripts/anasiw.js"></script>
+</body>
+
+</html>
