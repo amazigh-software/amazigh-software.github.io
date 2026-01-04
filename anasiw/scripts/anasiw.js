@@ -1,99 +1,64 @@
-const textarea = document.getElementById('tirra');
-const keyboard = document.getElementById('charKeyboard');
+// === Cache DOM elements ===
+const textarea = document.getElementById("tirra");
+const keyboards = document.querySelectorAll("#charKeyboard, #charKeyboard1");
 
-keyboard.addEventListener('click', function (e) {
-    if (e.target.dataset.char) {
+// === Mapping direct mode ===
+const directMap = {
+    c: "č",
+    d: "ḍ",
+    g: "ǧ",
+    h: "ḥ",
+    r: "ṛ",
+    s: "ṣ",
+    t: "ṭ",
+    z: "ẓ",
+    e: "ɛ",
+    y: "ɣ",
+    E: "Σ",
+    Y: "Γ"
+};
+
+// === Keyboard click handler (delegation) ===
+keyboards.forEach(keyboard => {
+    keyboard.addEventListener("click", ({ target }) => {
+        const char = target.dataset.char;
+        if (!char) return;
+
         textarea.focus();
-        textarea.value += e.target.dataset.char;
-    }
+        textarea.value += char;
+    });
 });
 
-
-const keyboard1 = document.getElementById('charKeyboard1');
-
-keyboard1.addEventListener('click', function (e) {
-    if (e.target.dataset.char) {
-        textarea.focus();
-        textarea.value += e.target.dataset.char;
-    }
-});
-
+// === Direct mode replacement ===
 function directMode() {
-    let textarea = document.getElementById("tirra").value;
-    let lastchar = textarea.charAt(textarea.length - 1);
-    let lastsecondchar = textarea.charAt(textarea.length - 2);
-    if (lastchar == '=') {
-        switch (lastsecondchar) {
-            case 'c':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'č';
-                break;
-            case 'd':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ḍ';
-                break;
-            case 'g':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ǧ';
-                break;
-            case 'h':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ḥ';
-                break;
-            case 'r':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ṛ';
-                break;
-            case 's':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ṣ';
-                break;
-            case 't':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ṭ';
-                break;
-            case 'z':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ẓ';
-                break;
-            case 'e':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ɛ';
-                break;
-            case 'y':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'ɣ';
-                break;
-            case 'E':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'Σ';
-                break;
-            case 'Y':
-                document.getElementById("tirra").value = textarea.substring(0, textarea.length - 2) + 'Γ';
-                break;
-        }
+    const value = textarea.value;
+    if (value.length < 2) return;
+
+    const last = value.at(-1);
+    const prev = value.at(-2);
+
+    if (last === "=" && directMap[prev]) {
+        textarea.value =
+            value.slice(0, -2) + directMap[prev];
     }
 }
 
-function focusTextarea() {
-    document.getElementById('tirra').focus();
-}
-
-function appendChar(char) {
-    document.getElementById("tirra").value += char;
-}
-
+// === Clipboard ===
 function copyText() {
-    const textarea = document.getElementById("tirra");
     if (!textarea.value.trim()) return;
     navigator.clipboard.writeText(textarea.value);
     textarea.focus();
 }
 
+// === Clear ===
 function clearText() {
-    const textarea = document.getElementById("tirra");
     textarea.value = "";
-    setCusrorToSecondeLine()
+    setCursorToSecondLine();
 }
 
-function setCusrorToSecondeLine() {
-    const textarea = document.getElementById("tirra");
-    if (!textarea.value.includes("\n")) {
-        textarea.value = "\n" + textarea.value;
-    }
+// === Cursor positioning ===
+function setCursorToSecondLine() {
+    textarea.value = "\n";
     textarea.setSelectionRange(1, 1);
     textarea.focus();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    setCusrorToSecondeLine();
-});
