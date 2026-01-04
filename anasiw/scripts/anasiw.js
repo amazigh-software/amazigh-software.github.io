@@ -23,7 +23,7 @@ const directMap = {
     T: "Ṭ",
     Z: "Ẓ",
     Y: "Γ",
-    E: "Σ"
+    E: "Ɛ"
 };
 
 // === Keyboard click handler (delegation) ===
