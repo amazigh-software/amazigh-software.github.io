@@ -9,7 +9,7 @@
     <link href="styles/anasiw.css" rel="stylesheet">
 </head>
 
-<body class="d-flex flex-column min-vh-100" onload="setCursorToSecondLine()">
+<body class="d-flex flex-column min-vh-100" onload="focusTextarea()">
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
@@ -38,29 +38,36 @@
             <section class="col-md-8">
 
                 <!-- Zone de saisie -->
-                <section class="mb-4 position-relative">
-                    <textarea id="tirra" class="form-control pe-5" rows="6" onkeyup="shortcut()"
-                        placeholder="Uru ayenna trid da..."></textarea>
+                <section class="mb-2">
+                    <!-- Barre au-dessus du textarea -->
+                    <div
+                        class="d-flex align-items-center justify-content-between mb-2 px-2 py-1 border border-secondary rounded">
 
-                    <!-- Buttons in textarea corner -->
-                    <div class="position-absolute top-0 end-0 m-1 d-flex gap-2">
-                        <button type="button" class="btn btn-sm btn-light" onclick="copyText()" aria-label="Copier"
-                            title="Copier">
-                            <img src="images/copy.svg" width="15" height="15" alt="">
-                            Copier
-                        </button>
+                        <!-- Label à gauche -->
+                        <small class="text-muted">
+                            Uru ayenna trid da
+                        </small>
 
-                        <button type="button" class="btn btn-sm btn-light" onclick="clearText()" aria-label="Effacer"
-                            title="Effacer">
-                            <img src="images/trash.svg" width="15" height="15" alt="">
-                            Effacer
-                        </button>
+                        <!-- Boutons à droite -->
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-sm btn-outline" onclick="copyText()"
+                                aria-label="Copier">
+                                <img src="images/copy.svg" width="15" height="15" alt="">
+                                Copier
+                            </button>
+
+                            <button type="button" class="btn btn-sm btn-outline" onclick="clearText()"
+                                aria-label="Effacer">
+                                <img src="images/trash.svg" width="15" height="15" alt="">
+                                Effacer
+                            </button>
+                        </div>
                     </div>
+                    <textarea id="tirra" class="form-control" rows="5" onkeyup="directMode()"></textarea>
                 </section>
 
-
                 <!-- Clavier de caractères -->
-                <section class="mb-4">
+                <section class="mb-2">
                     <div class="char-grid" id="charKeyboard">
                         <!-- Ligne 1 : MAJUSCULES -->
                         <button type="button" class="btn btn-outline-secondary btn-sm" data-char="Č">Č</button>

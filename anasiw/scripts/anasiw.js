@@ -53,12 +53,9 @@ function copyText() {
 // === Clear ===
 function clearText() {
     textarea.value = "";
-    setCursorToSecondLine();
+    textarea.focus();
 }
 
-// === Cursor positioning ===
-function setCursorToSecondLine() {
-    textarea.value = "\n";
-    textarea.setSelectionRange(1, 1);
+function focusTextarea() {
     textarea.focus();
 }
