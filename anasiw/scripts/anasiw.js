@@ -29,8 +29,8 @@ keyboards.forEach(keyboard => {
     });
 });
 
-// === Direct mode replacement ===
-function directMode() {
+// === Shortcut replacement ===
+function shortcut() {
     const value = textarea.value;
     if (value.length < 2) return;
 
