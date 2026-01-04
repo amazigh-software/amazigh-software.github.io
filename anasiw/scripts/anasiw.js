@@ -46,9 +46,21 @@ function shortcut() {
 // === Clipboard ===
 function copyText() {
     if (!textarea.value.trim()) return;
-    navigator.clipboard.writeText(textarea.value);
-    textarea.focus();
+
+    navigator.clipboard.writeText(textarea.value).then(() => {
+        showCopyToast();
+        textarea.focus();
+    });
 }
+
+function showCopyToast() {
+    const toastEl = document.getElementById("copyToast");
+    const toast = new bootstrap.Toast(toastEl, {
+        delay: 2000
+    });
+    toast.show();
+}
+
 
 // === Clear ===
 function clearText() {
