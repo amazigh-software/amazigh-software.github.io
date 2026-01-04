@@ -71,3 +71,28 @@ function focusTextarea() {
 function appendChar(char) {
     document.getElementById("tirra").value += char;
 }
+
+function copyText() {
+    const textarea = document.getElementById("tirra");
+    if (!textarea.value.trim()) return;
+    navigator.clipboard.writeText(textarea.value);
+}
+
+function clearText() {
+    const textarea = document.getElementById("tirra");
+    textarea.value = "";
+    setCusrorToSecondeLine()
+}
+
+function setCusrorToSecondeLine() {
+    const textarea = document.getElementById("tirra");
+    if (!textarea.value.includes("\n")) {
+        textarea.value = "\n" + textarea.value;
+    }
+    textarea.setSelectionRange(1, 1);
+    textarea.focus();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setCusrorToSecondeLine()
+});
