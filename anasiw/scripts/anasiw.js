@@ -53,6 +53,11 @@ function copyText() {
 // === Clear ===
 function clearText() {
     textarea.value = "";
+
+    // Forcer le curseur en haut
+    textarea.setSelectionRange(0, 0);
+
+    // Focus (le clavier reste stable)
     textarea.focus();
 }
 
