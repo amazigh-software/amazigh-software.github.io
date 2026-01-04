@@ -97,3 +97,13 @@ function setCusrorToSecondeLine() {
 document.addEventListener("DOMContentLoaded", () => {
     setCusrorToSecondeLine();
 });
+
+let focused = false;
+
+function enableFocusOnce() {
+    if (focused) return;
+
+    const textarea = document.getElementById("tirra");
+    textarea.focus();
+    focused = true;
+}
