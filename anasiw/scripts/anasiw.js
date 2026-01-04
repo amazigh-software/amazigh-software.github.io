@@ -12,10 +12,18 @@ const directMap = {
     s: "ṣ",
     t: "ṭ",
     z: "ẓ",
-    e: "ɛ",
     y: "ɣ",
-    E: "Σ",
-    Y: "Γ"
+    e: "ɛ",
+    C: "Č",
+    D: "Ḍ",
+    G: "Ǧ",
+    H: "Ḥ",
+    R: "Ṛ",
+    S: "Ṣ",
+    T: "Ṭ",
+    Z: "Ẓ",
+    Y: "Γ",
+    E: "Σ"
 };
 
 // === Keyboard click handler (delegation) ===
@@ -62,6 +70,16 @@ function showCopyToast() {
     toast.show();
 }
 
+function cutText() {
+    if (!textarea.value.trim()) return;
+
+    navigator.clipboard.writeText(textarea.value).then(() => {
+        showCopyToast();
+        textarea.value = "";
+        textarea.setSelectionRange(0, 0);
+        textarea.focus();
+    });
+}
 
 // === Clear ===
 function clearText() {
