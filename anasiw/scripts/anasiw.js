@@ -29,6 +29,7 @@ keyboards.forEach(keyboard => {
     });
 });
 
+
 // === Shortcut replacement ===
 function shortcut() {
     const value = textarea.value;
