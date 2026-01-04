@@ -76,6 +76,7 @@ function copyText() {
     const textarea = document.getElementById("tirra");
     if (!textarea.value.trim()) return;
     navigator.clipboard.writeText(textarea.value);
+    textarea.focus();
 }
 
 function clearText() {
@@ -94,5 +95,5 @@ function setCusrorToSecondeLine() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    setCusrorToSecondeLine()
+    setCusrorToSecondeLine();
 });
