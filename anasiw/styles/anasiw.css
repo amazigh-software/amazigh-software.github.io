@@ -1,11 +1,5 @@
 .char-grid {
     display: grid;
-    grid-template-columns: repeat(6, auto);
-    gap: 0.5rem;
-}
-
-.char-grid5 {
-    display: grid;
     grid-template-columns: repeat(5, auto);
     gap: 0.5rem;
 }
