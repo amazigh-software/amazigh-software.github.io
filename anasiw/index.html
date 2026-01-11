@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anasiw amaziɣ - asekkil alatini</title>
     <link rel="icon" type="image/x-icon" href="/anasiw/images/favicon.ico">
-    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
     <link href="styles/anasiw.css" rel="stylesheet">
 </head>
 
@@ -21,7 +22,7 @@
                 <a href="https://github.com/amazigh-software/anasiw"
                     class="ms-auto me-3 d-flex align-items-center text-dark fs-4" target="_blank"
                     aria-label="Source code on GitHub">
-                    <img src="/anasiw/images/github.svg" alt="GitHub" width="20" height="20">
+                    <i class="bi bi-github"></i>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -47,20 +48,20 @@
                         <!-- Groupe de gauche : Couper + Copier -->
                         <div class="d-flex gap-2">
                             <button type="button" class="btn btn-sm btn-outline" onclick="cutText()" aria-label="Nkeḍ">
-                                <img src="images/scissors.svg" width="15" height="15" alt="">
+                                <i class="bi bi-scissors"></i>
                                 Nkeḍ
                             </button>
 
                             <button type="button" class="btn btn-sm btn-outline" onclick="copyText()"
                                 aria-label="Zezder">
-                                <img src="images/copy.svg" width="15" height="15" alt="">
+                                <i class="bi bi-copy"></i>
                                 Zezder
                             </button>
                         </div>
 
                         <!-- Bouton de droite : Effacer -->
                         <button type="button" class="btn btn-sm btn-outline" onclick="clearText()" aria-label="Sfeḍ">
-                            <img src="images/trash.svg" width="15" height="15" alt="">
+                            <i class="bi bi-trash"></i>
                             Sfeḍ
                         </button>
 
@@ -358,7 +359,7 @@
         </div>
     </footer>
 
-    <script src="scripts/bootstrap.bundle.min.js"></script>
+    <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="scripts/anasiw.js"></script>
 </body>
 
